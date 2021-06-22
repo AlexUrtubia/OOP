@@ -1,9 +1,9 @@
 #Crea una clase de BankAccount con los atributos tasa de interés y saldo
 class BankAccount:
-    def __init__(self, nombre, saldo, tasa_inte):
+    def __init__(self, nombre, saldo=0, tasa_inte=0.01):
         self.nombre = nombre
-        self.saldo = (int)(saldo)
-        self.tasa_inte = (float)(tasa_inte)
+        self.saldo = saldo
+        self.tasa_inte = tasa_inte
         print("Saldo: ",self.saldo,"tasa interes: ",self.tasa_inte)
     #Agrega un método de depósito a la clase BankAccount   
     def deposit(self, amount):
@@ -23,16 +23,15 @@ class BankAccount:
         print("Saldo en",self.nombre,": $",self.saldo)
         return self
     #Agrega un método yield_interest a la clase BankAccount
-    
     def yield_interest(self):
-        if self.saldo >= 0:
+        if self.saldo > 0:
             self.saldo += (self.tasa_inte*self.saldo)
             print(self.nombre,"a aumentado en $",self.saldo*self.tasa_inte,"su saldo gracias a intereses generados")
             return self
 
 #Crea 2 cuentas
-cta1=BankAccount("Cuenta 1","5000","0.03")
-cta2=BankAccount("Cuenta 2","0","0.07")
+cta1=BankAccount("Cuenta 1",saldo=5000,tasa_inte=0.03)
+cta2=BankAccount("Cuenta 2",150000,0.1)
 
 #En la primera cuenta, realice 3 depósitos y 1 retiro, 
     #luego calcule los intereses y muestre la información de la cuenta en 
